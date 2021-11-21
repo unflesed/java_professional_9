@@ -1,4 +1,4 @@
-package java_professional_9.task_2;
+package java_professional_9.task_3.way_1;
 
 public class A implements Runnable{
     @Override
@@ -20,7 +20,7 @@ public class A implements Runnable{
 class B implements Runnable{
     @Override
     public void run() {
-        synchronized (B.class) {
+        synchronized (A.class) {
             System.out.println("Запуск потока 2");
 
             try {
@@ -28,7 +28,7 @@ class B implements Runnable{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            synchronized (A.class) {
+            synchronized (B.class) {
                 System.out.println("Остановка потока 2");
             }
         }
